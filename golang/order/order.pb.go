@@ -142,10 +142,11 @@ func (x *OrderItem) GetQuantity() int32 {
 }
 
 type CreateOrderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	OrderId       int32                  `protobuf:"varint,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	OrderId               int32                  `protobuf:"varint,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	EstimatedDeliveryDays int32                  `protobuf:"varint,2,opt,name=estimated_delivery_days,json=estimatedDeliveryDays,proto3" json:"estimated_delivery_days,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *CreateOrderResponse) Reset() {
@@ -185,6 +186,13 @@ func (x *CreateOrderResponse) GetOrderId() int32 {
 	return 0
 }
 
+func (x *CreateOrderResponse) GetEstimatedDeliveryDays() int32 {
+	if x != nil {
+		return x.EstimatedDeliveryDays
+	}
+	return 0
+}
+
 var File_order_order_proto protoreflect.FileDescriptor
 
 const file_order_order_proto_rawDesc = "" +
@@ -202,9 +210,10 @@ const file_order_order_proto_rawDesc = "" +
 	"\fproduct_code\x18\x01 \x01(\tR\vproductCode\x12\x1d\n" +
 	"\n" +
 	"unit_price\x18\x02 \x01(\x02R\tunitPrice\x12\x1a\n" +
-	"\bquantity\x18\x03 \x01(\x05R\bquantity\"0\n" +
+	"\bquantity\x18\x03 \x01(\x05R\bquantity\"h\n" +
 	"\x13CreateOrderResponse\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\x05R\aorderId2>\n" +
+	"\border_id\x18\x01 \x01(\x05R\aorderId\x126\n" +
+	"\x17estimated_delivery_days\x18\x02 \x01(\x05R\x15estimatedDeliveryDays2>\n" +
 	"\x05Order\x125\n" +
 	"\x06Create\x12\x13.CreateOrderRequest\x1a\x14.CreateOrderResponse\"\x00B:Z8github.com/maduvitorino/microservices-proto/golang/orderb\x06proto3"
 
