@@ -15,6 +15,7 @@ message OrderItem {
 
 message CreateOrderResponse {
 	int32 order_id = 1;
+	int32 estimated_delivery_days = 2;
 }
 
 service Order {
